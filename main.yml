@@ -26,6 +26,7 @@
       mode: 0644
 
 - name: deploy haproxy
+  tags: haproxy
   hosts: frontends
   gather_facts: false # remove later! speeds up testing
   become: true
@@ -110,7 +111,7 @@
 #       dest: /usr/share/tomcat/webapps/ansible/index.html
 
 - name: deploy postgres
-  hosts: apps
+  tags: postgres
   gather_facts: false
   become: true
   hosts: appdbs
@@ -144,12 +145,12 @@
 
 - name: deploy apache
   hosts: apps
+  tags: apache
   gather_facts: false
   become: true
-  hosts: apps
   tasks:
   - include_role:
-      name: postgres
+      name: apache
 #   - name: install apache
 #     yum:
 #       name: httpd
