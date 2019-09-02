@@ -15,7 +15,7 @@
     chkconfig postgresql on
   args:
     creates: /var/lib/pgsql/data/PG_VERSION
-  become: true
+  # become: true
 
 - name: start postgres
   service:
