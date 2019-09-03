@@ -12,7 +12,6 @@
 - name: initialize postgres
   shell: 
     postgresql-setup initdb
-    chkconfig postgresql on
   args:
     creates: /var/lib/pgsql/data/PG_VERSION
   # become: true
