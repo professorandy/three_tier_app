@@ -12,6 +12,11 @@
 #   Roles - what are roles?
 #   Bare variables
 #   No use of handlers
+- name: 3.2
+  hosts: workstation
+  tasks:
+  - include_role: 
+      name: osp.server
 
 - name: configuration
   hosts: all
@@ -27,7 +32,7 @@
 
 - name: deploy haproxy
   tags: haproxy
-  hosts: frontends
+  hosts: frontend
   gather_facts: false
   become: true
 
